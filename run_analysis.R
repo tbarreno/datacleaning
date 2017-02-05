@@ -154,6 +154,10 @@ data_len <- length(data_selected) - 2
 data_average <- aggregate( data_selected[,1:data_len], 
            list(data_selected$activity, data_selected$`subject-id`), mean )
 
+# Set column names
+colnames(data_average)[1] <- c("activity")
+colnames(data_average)[2] <- c("subject-id")
+
 # And save the new data set
 cat(sprintf("Saving average data to '%s'...\n", average_output_file))
 write.table( data_average, file=average_output_file, row.name=FALSE)
