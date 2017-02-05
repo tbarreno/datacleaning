@@ -156,6 +156,6 @@ data_average <- aggregate( data_selected[,1:data_len],
 
 # And save the new data set
 cat(sprintf("Saving average data to '%s'...\n", average_output_file))
-write.csv(data_average, file=average_output_file)
+write.table( data_average, file=average_output_file, row.name=FALSE)
 
 cat("End.")
